@@ -8,5 +8,7 @@
 import UIKit
 
 class MainTabBarController: UITabBarController {
+    
+    static let contactList = Person.getContactList()
 
 }
