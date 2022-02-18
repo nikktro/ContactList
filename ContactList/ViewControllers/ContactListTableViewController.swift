@@ -9,8 +9,10 @@ import UIKit
 
 class ContactListTableViewController: UITableViewController {
     
+    // MARK: - Private Properties
     private let contactList = MainTabBarController.contactList
     
+    // MARK: - TableView Delegate Methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         contactList.count
     }
@@ -32,6 +34,7 @@ class ContactListTableViewController: UITableViewController {
         performSegue(withIdentifier: "contactDetails", sender: contact)
     }
     
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let contactDetailsVC = segue.destination as? ContactDetailsViewController else { return }
         contactDetailsVC.contact = sender as? Person

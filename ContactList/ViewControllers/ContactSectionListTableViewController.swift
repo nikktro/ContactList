@@ -8,9 +8,11 @@
 import UIKit
 
 class ContactSectionListTableViewController: UITableViewController {
-
+    
+    // MARK: - Private Properties
     private let contactList = MainTabBarController.contactList
     
+    // MARK: - TableView Delegate Methods
     override func numberOfSections(in tableView: UITableView) -> Int {
         contactList.count
     }

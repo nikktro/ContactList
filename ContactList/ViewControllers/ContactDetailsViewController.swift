@@ -9,11 +9,14 @@ import UIKit
 
 class ContactDetailsViewController: UIViewController {
     
+    // MARK: - IB Outlets
     @IBOutlet var phoneNumberLabel: UILabel!
     @IBOutlet var emailLabel: UILabel!
     
+    // MARK: - Public Properties
     var contact: Person!
     
+    // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
