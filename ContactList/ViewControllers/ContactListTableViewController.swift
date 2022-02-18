@@ -27,5 +27,15 @@ class ContactListTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let contact = contactList[indexPath.row]
+        performSegue(withIdentifier: "contactDetails", sender: contact)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let contactDetailsVC = segue.destination as? ContactDetailsViewController else { return }
+        contactDetailsVC.contact = sender as? Person
+    }
+    
 }
 
