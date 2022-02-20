@@ -32,10 +32,10 @@ class ContactSectionListTableViewController: UITableViewController {
         
         if indexPath.row == 0 {
             content.text = person.phoneNumber
-            content.image = UIImage(systemName: "phone")
+            content.image = UIImage(systemName: Contacts.phone.rawValue)
         } else {
             content.text = person.email
-            content.image = UIImage(systemName: "tray")
+            content.image = UIImage(systemName: Contacts.email.rawValue)
         }
         
         cell.contentConfiguration = content
