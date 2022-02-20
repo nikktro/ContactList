@@ -14,7 +14,10 @@ struct Person {
     var fullname: String {
         "\(name) \(surname)"
     }
-    
+
+}
+
+extension Person {
     static func getContactList() -> [Person] {
         var persons: [Person] = []
         let dataManager = DataManager.shared
@@ -24,7 +27,9 @@ struct Person {
         let phoneNumbers = dataManager.phoneNumbers.shuffled()
         let emails = dataManager.emails.shuffled()
         
-        persons = (0..<dataManager.names.count).map {
+        let iterationCount = min(names.count, surnames.count, phoneNumbers.count, emails.count)
+        
+        persons = (0..<iterationCount).map {
             Person(
                 name: names[$0],
                 surname: surnames[$0],
