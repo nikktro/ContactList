@@ -136,7 +136,7 @@
         <!--Persons List-->
         <scene sceneID="i2z-y2-y3J">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="0Ng-Ur-E5m" customClass="MainTabBarController" customModule="ContactList" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="0Ng-Ur-E5m" customClass="TabBarViewController" customModule="ContactList" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Persons List" id="gNp-E3-DR0"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jmA-ti-ZIb">

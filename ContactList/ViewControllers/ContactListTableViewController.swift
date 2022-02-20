@@ -9,35 +9,34 @@ import UIKit
 
 class ContactListTableViewController: UITableViewController {
     
-    // MARK: - Private Properties
-    private let contactList = MainTabBarController.contactList
+    // MARK: - Public Properties
+    var persons: [Person] = []
     
     // MARK: - TableView Delegate Methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        contactList.count
+        persons.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactList", for: indexPath)
         var content = cell.defaultContentConfiguration()
+        let person = persons[indexPath.row]
         
-        let contact = contactList[indexPath.row]
-        
-        content.text = contact.fullname
-        
+        content.text = person.fullname
         cell.contentConfiguration = content
+        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let contact = contactList[indexPath.row]
+        let contact = persons[indexPath.row]
         performSegue(withIdentifier: "contactDetails", sender: contact)
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let contactDetailsVC = segue.destination as? ContactDetailsViewController else { return }
-        contactDetailsVC.contact = sender as? Person
+        contactDetailsVC.person = sender as? Person
     }
     
 }

@@ -14,15 +14,15 @@ class ContactDetailsViewController: UIViewController {
     @IBOutlet var emailLabel: UILabel!
     
     // MARK: - Public Properties
-    var contact: Person!
+    var person: Person!
     
     // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = contact.fullname
-        phoneNumberLabel.text = "Phone: \(contact.phoneNumber)"
-        emailLabel.text = "Email: \(contact.email)"
+        title = person.fullname
+        phoneNumberLabel.text = "Phone: \(person.phoneNumber)"
+        emailLabel.text = "Email: \(person.email)"
     }
     
 }

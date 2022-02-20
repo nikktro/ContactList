@@ -9,12 +9,12 @@ import UIKit
 
 class ContactSectionListTableViewController: UITableViewController {
     
-    // MARK: - Private Properties
-    private let contactList = MainTabBarController.contactList
+    // MARK: - Public Properties
+    var persons: [Person] = []
     
     // MARK: - TableView Delegate Methods
     override func numberOfSections(in tableView: UITableView) -> Int {
-        contactList.count
+        persons.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -22,25 +22,29 @@ class ContactSectionListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        contactList[section].fullname
+        persons[section].fullname
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactSectionList", for: indexPath)
         var content = cell.defaultContentConfiguration()
-        
-        let contact = contactList[indexPath.section]
+        let person = persons[indexPath.section]
         
         if indexPath.row == 0 {
-            content.text = contact.phoneNumber
+            content.text = person.phoneNumber
             content.image = UIImage(systemName: "phone")
         } else {
-            content.text = contact.email
+            content.text = person.email
             content.image = UIImage(systemName: "tray")
         }
         
         cell.contentConfiguration = content
+        
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
